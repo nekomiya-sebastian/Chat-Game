@@ -11,11 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Level
+  - Player
+  - Enemy
+  - PlayerWeapon
+  - EnemyWeapon
   - 
   - 
   - 
@@ -40,4 +40,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2550254577
+    locked: 0
+  - name: Environment
+    uniqueID: 921783309
+    locked: 0
+  - name: Enemy
+    uniqueID: 3513782779
+    locked: 0
+  - name: Player
+    uniqueID: 2094033093
+    locked: 0
+  - name: Pickup
+    uniqueID: 2898504931
+    locked: 0
+  - name: Particle
+    uniqueID: 1595970585
     locked: 0

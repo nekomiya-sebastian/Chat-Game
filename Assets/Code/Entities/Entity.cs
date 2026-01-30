@@ -21,18 +21,24 @@ public class Entity
 
 	protected void Move( Vector3 dir )
 	{
-		body.AddForce( dir * moveSpd,ForceMode2D.Force );
+		const float dtOffset = 60.0f;
+		body.AddForce( dir * moveSpd * Time.deltaTime * dtOffset,ForceMode2D.Force );
 
 		UpdateXScale();
 	}
 
 	protected void UpdateXScale()
 	{
-		float xScale = transform.localScale.x;
-		if( body.velocity.x > velLookThresh ) xScale = 1.0f;
-		else if( body.velocity.x < velLookThresh ) xScale = -1.0f;
+		if( body.velocity.x > velLookThresh ) LookDir( 1 );
+		else if( body.velocity.x < velLookThresh ) LookDir( -1 );
+	}
+
+	protected void LookDir( int dir )
+	{
+		Assert.IsTrue( Mathf.Abs( dir ) == 1 );
+		
 		var scale = transform.localScale;
-		scale.x = xScale;
+		scale.x = Mathf.Sign( dir );
 		transform.localScale = scale;
 	}
 

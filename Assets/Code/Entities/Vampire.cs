@@ -17,20 +17,16 @@ public class Vampire
 		Destroy( GetComponent<BoxCollider2D>() );
 		GetComponent<Animator>().SetTrigger( "defeat" );
 
-		if( Random.Range( 0.0f,1.0f ) < dropChance )
-		{
-			var drop = Instantiate( dropItemPrefab,transform.position,
-				Quaternion.Euler( 0.0f,itemSpawnAngleDev.RandFloat(),0.0f ) );
-			drop.GetComponent<Rigidbody2D>().AddForce( drop.transform.up *
-				itemLaunchForceDev.RandFloat(),ForceMode2D.Impulse );
+		itemDrop.RollDrop( transform.position );
 
-		}
+		var dissipateParts = Instantiate( dissipatePartsPrefab,
+			transform.Find( "PartSpawnPos" ).position,Quaternion.identity );
+		Destroy( gameObject,dissipateParts.GetComponent<ParticleSystem>().main.duration );
 
 		Destroy( this );
 	}
 
-	[SerializeField] GameObject dropItemPrefab = null;
-	[SerializeField] float dropChance = 0.4f;
-	[SerializeField] RangeF itemSpawnAngleDev = new RangeF( -45.0f,45.0f );
-	[SerializeField] RangeF itemLaunchForceDev = new RangeF( 1.0f,5.0f );
+	[SerializeField] ItemDropper itemDrop = null;
+
+	[SerializeField] GameObject dissipatePartsPrefab = null;
 }

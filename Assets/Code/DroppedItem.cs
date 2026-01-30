@@ -13,7 +13,7 @@ public class DroppedItem
 
 	void Update()
 	{
-		if( transform.position.y < dropY + yBuffer && !done )
+		if( landStartTimer.Update() && transform.position.y < dropY + yBuffer && !done )
 		{
 			Destroy( GetComponent<Rigidbody2D>() );
 			if( setTriggerOnLand ) GetComponent<Collider2D>().isTrigger = true;
@@ -28,5 +28,6 @@ public class DroppedItem
 
 	[SerializeField] bool setTriggerOnLand = false;
 
+	Timer landStartTimer = new Timer( 0.3f );
 	const float yBuffer = 0.5f;
 }
