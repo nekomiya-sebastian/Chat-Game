@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366890ac3f1ffa54f8479d8f9c5fc1ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 6330111109560108130, guid: 489760d5fbaf3004e90e5bd322ed8239, type: 3}
+  enemyPrefab: {fileID: 8405316956916146531, guid: f0b0c025f2d287543a1dfea85a98ec19, type: 3}
   spawnRateRange:
     min: 3
     max: 7
@@ -161,8 +161,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 921783309
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a5abc9a55093c344a8b9cc6dd1e201cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -18,8 +18,6 @@ public class PlayerMove
 		{
 			move.Normalize();
 			Move( move );
-
-			UpdateXScale();
 		}
 	}
 }

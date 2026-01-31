@@ -8,12 +8,14 @@ public class MudPatch
 {
 	void OnTriggerEnter2D( Collider2D coll )
 	{
-		coll.GetComponent<Rigidbody2D>().drag += dragAdd;
+		var rb = coll.GetComponent<Rigidbody2D>();
+		if( rb ) rb.drag += dragAdd;
 	}
 
 	void OnTriggerExit2D( Collider2D coll )
 	{
-		coll.GetComponent<Rigidbody2D>().drag -= dragAdd;
+		var rb = coll.GetComponent<Rigidbody2D>();
+		if( rb ) rb.drag -= dragAdd;
 	}
 
 	[SerializeField] float dragAdd = 25.0f;

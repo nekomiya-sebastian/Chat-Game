@@ -24,21 +24,15 @@ public class Entity
 		const float dtOffset = 60.0f;
 		body.AddForce( dir * moveSpd * Time.deltaTime * dtOffset,ForceMode2D.Force );
 
-		UpdateXScale();
+		LookDir( ( int )Mathf.Sign( dir.x ) );
 	}
 
-	protected void UpdateXScale()
-	{
-		if( body.velocity.x > velLookThresh ) LookDir( 1 );
-		else if( body.velocity.x < velLookThresh ) LookDir( -1 );
-	}
-
-	protected void LookDir( int dir )
+	public void LookDir( int dir )
 	{
 		Assert.IsTrue( Mathf.Abs( dir ) == 1 );
 		
 		var scale = transform.localScale;
-		scale.x = Mathf.Sign( dir );
+		scale.x = dir;
 		transform.localScale = scale;
 	}
 
